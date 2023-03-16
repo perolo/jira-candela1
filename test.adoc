@@ -1,0 +1,56 @@
+= Requirements
+:experimental:
+
+This is a proposal for how we could reference requirements from our ascii doc documentation.
+
+== Process idea
+
+Requirements are managed and owned in an external system: Jira.
+To be able to reference and make sure that the software documentation is updated with the latest requirements a "pre-processor" step to the generation of documentation is proposed.
+
+By adding a specific "encoding" of a "text" in the document that is replaced at "pre" compiletime
+
+This enables that if the requirement has been updated in Jira the old "wording" is replaced with the new and the difference is possible to review in the PR.
+
+If Jira is deprecated, the information is still maintained locally with the code
+
+
+== Examples
+
+
+<CC-202>
+
+<CC-205:When the SW detects a severe malfunction it shall transition to  the System Safe State>
+
+<CC-202:The P12 SW needs to be approved by DNV as a SW developed with documented development process>
+
+
+.An example table
+[options="header"]
+|=======================
+|Col 1|Col 2      |Col 3
+|1    |<CC-202:The P12 SW needs to be approved by DNV as a SW developed with documented development process>     |a
+|2    |Item 2     |b
+|3    |Item 3     |c
+|6    |Three items|d
+|=======================
+
+== Future Improvements
+
+Also adding an hyperlink to the issue?
+
+
+.Additional possible customization/formatting features possible:
+* N : Get the Summary from Jira (Name)
+* D : Get the description from jira
+* S : Get the status of the jira issue
+* H : Add the hyperlink
+
+== Examples Future Improvements
+
+<REQ-2:NDH> =>
+<https://candela-boats.atlassian.net/browse/REQ-2[REQ-2:NDH:An example requirement, with some additional detail]>
+
+
+<REQ-2:NS> =>
+<REQ-2:NS:An example requirement kbd:[APPROVED]>
